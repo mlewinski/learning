@@ -12,15 +12,17 @@ namespace Events
         static void Main(string[] args)
         {
             Stock st = new Stock("Koza");
-            st.PriceChanged += (new Program()).PriceChangedHandle;
+            st.Price = 10;
+            st.PriceChanged += stock_PriceChanged;
             st.Price = 10;
             st.Price = 15;
+            st.Price = 11;
             Console.ReadLine();
         }
 
-        public void PriceChangedHandle(decimal oldPrice, decimal price)
+        static void stock_PriceChanged(object sender, PriceChangedEventArgs e)
         {
-            Console.WriteLine("Price changed from {0} to {1} !", oldPrice, price);
+            if((e.NewPrice - e.LastPrice) / e.LastPrice > 0.1M) Console.WriteLine("Alert! 10% stock price increase! {0} to {1}", e.LastPrice, e.NewPrice);
         }
     }
 }
