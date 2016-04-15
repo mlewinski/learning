@@ -4,7 +4,9 @@ namespace GenericDataStructures
 {
     public class Stack<T>
     {
-        private List<T> StackArray = new List<T>();
+        private readonly List<T> StackArray = new List<T>();
+
+        public int Size => StackArray.Count;
 
         public void Push(T element)
         {
@@ -13,16 +15,14 @@ namespace GenericDataStructures
 
         public T Pop()
         {
-            T tmp = StackArray[StackArray.Count-1];
-            StackArray.RemoveAt(StackArray.Count-1);
+            var tmp = StackArray[StackArray.Count - 1];
+            StackArray.RemoveAt(StackArray.Count - 1);
             return tmp;
         }
 
         public bool Empty()
         {
-            return (StackArray.Count == 0);
+            return StackArray.Count == 0;
         }
-
-        public int Size => StackArray.Count;
     }
 }

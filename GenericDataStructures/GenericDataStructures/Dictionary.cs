@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GenericDataStructures
+﻿namespace GenericDataStructures
 {
-    class Dictionary
+    internal class Dictionary
     {
     }
 }
