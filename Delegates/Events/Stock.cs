@@ -4,24 +4,24 @@ namespace Events
 {
     class Stock
     {
-        private string _symbol;
-        private decimal price;
+        public string Symbol;
+        private decimal _price;
         public Stock(string symbol)
         {
-            this._symbol = symbol;
+            Symbol = symbol;
         }
 
         public event EventHandler<PriceChangedEventArgs> PriceChanged;
 
         public decimal Price
         {
-            get { return Price; }
+            get { return _price; }
             set
             {
-                if (price == value) return;
-                decimal oldPrice = price;
-                price = value;
-                OnPriceChanged(new PriceChangedEventArgs(oldPrice, price));
+                if (_price == value) return;
+                decimal oldPrice = _price;
+                _price = value;
+                OnPriceChanged(new PriceChangedEventArgs(oldPrice, _price));
             }
         }
 

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegates", "Delegates\Dele
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "Events\Events.csproj", "{C967672A-6538-40EE-B8B0-F91F0AA7E9BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambdas", "Lambdas\Lambdas.csproj", "{DC4AC629-7BCE-4981-AE27-C48A66E73A14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C967672A-6538-40EE-B8B0-F91F0AA7E9BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C967672A-6538-40EE-B8B0-F91F0AA7E9BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C967672A-6538-40EE-B8B0-F91F0AA7E9BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC4AC629-7BCE-4981-AE27-C48A66E73A14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4AC629-7BCE-4981-AE27-C48A66E73A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC4AC629-7BCE-4981-AE27-C48A66E73A14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC4AC629-7BCE-4981-AE27-C48A66E73A14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
