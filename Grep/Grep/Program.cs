@@ -60,32 +60,24 @@ namespace Grep
                                 {
                                     if (!line.StartsWith(pattern))
                                     {
-                                        Console.ForegroundColor = ConsoleColor.Green;
-                                        Console.WriteLine("{0} : {1} ", args[i], lineNumber);
-                                        Console.ForegroundColor = ConsoleColor.White;
+                                        PrintMatch(args[i], lineNumber);
                                     }
                                 }
                                 else
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Green;
-                                    Console.WriteLine("{0} : {1} ", args[i], lineNumber);
-                                    Console.ForegroundColor = ConsoleColor.White;
+                                    PrintMatch(args[i], lineNumber);
                                 }
                             }
                             else
                             {
                                 if (line.Contains(pattern)) {
-                                    Console.ForegroundColor = ConsoleColor.Green;
-                                    Console.WriteLine("{0} : {1} ", args[i], lineNumber);
-                                    Console.ForegroundColor = ConsoleColor.White;
+                                    PrintMatch(args[i], lineNumber);
                                 }
                                 else if (options[1] == true)
                                 {
                                     if (line.StartsWith(pattern))
                                     {
-                                        Console.ForegroundColor = ConsoleColor.Green;
-                                        Console.WriteLine("{0} : {1} ", args[i], lineNumber);
-                                        Console.ForegroundColor = ConsoleColor.White;
+                                        PrintMatch(args[i], lineNumber);
                                     }
                                 }
                             }
@@ -100,6 +92,13 @@ namespace Grep
                 }
             }
             Console.ReadLine();
+        }
+
+        private static void PrintMatch(string fileName, int lineNumber)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("{0} : {1} ", fileName, lineNumber);
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
