@@ -32,6 +32,7 @@ namespace Threads
             #endregion
 
             var signal = new ManualResetEvent(false);
+            #region Old
             //new Thread(() =>
             //{
             //    Console.WriteLine("Thread T1 waiting for signal....");
@@ -57,16 +58,27 @@ namespace Threads
             //        }
             //        else break;
             //    }
-            //});
+            //}); 
+            #endregion
             Task<int> primeNumberTask1 = Task.Run(() =>
-                Enumerable.Range(2, 6000000).Count(n =>
+                Enumerable.Range(2, 3000000).Count(n =>
                     Enumerable.Range(2, (int)Math.Sqrt(n) - 1).All(i => n % i > 0)));
             Console.WriteLine("Task is running...");
-            long suma = 0;
-            for (long i = 0; i < 6000000; i++) suma += i;
-            Console.WriteLine(suma);
-            int t1 = primeNumberTask1.Result;
-            Console.WriteLine(t1);
+            var awaiter = primeNumberTask1.GetAwaiter();
+            awaiter.OnCompleted(() =>
+            {
+                Console.WriteLine("Sleeping");
+                Thread.Sleep(2000);
+                int result = awaiter.GetResult();
+                Console.WriteLine(result);
+            });
+            var tcs = new TaskCompletionSource<int>();
+            new Thread(() =>
+            {
+                Thread.Sleep(500);
+                tcs.SetResult(42);
+            }) {IsBackground = false}.Start();
+            Console.WriteLine(tcs.Task.Result);
             Console.ReadLine();
         }
 
